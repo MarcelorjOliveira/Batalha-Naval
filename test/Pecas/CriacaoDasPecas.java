@@ -5,6 +5,7 @@ package Pecas;
  * and open the template in the editor.
  */
 
+import batalhanaval.BarcoDeTresCanos;
 import batalhanaval.BarcoDeDoisCanos;
 import batalhanaval.Submarino;
 import batalhanaval.Tabuleiro;
@@ -70,6 +71,30 @@ public class CriacaoDasPecas {
         assertEquals(3, barcodedoiscanos.pontos.get(0).Y);
         assertEquals(2, barcodedoiscanos.pontos.get(1).X);
         assertEquals(4, barcodedoiscanos.pontos.get(1).Y);
+        
+    }
+    
+    @Test
+    public void criaBarcoDeTresCanosAcima() {
+        BarcoDeTresCanos barcodetrescanos = new BarcoDeTresCanos(2,3,CIMA);
+        assertEquals(2, barcodetrescanos.pontos.get(0).X);
+        assertEquals(3, barcodetrescanos.pontos.get(0).Y);
+        assertEquals(2, barcodetrescanos.pontos.get(1).X);
+        assertEquals(2, barcodetrescanos.pontos.get(1).Y);
+        assertEquals(2, barcodetrescanos.pontos.get(2).X);
+        assertEquals(1, barcodetrescanos.pontos.get(2).Y);
+        
+    }
+    
+    @Test
+    public void criaBarcoDeTresCanosAEsquerda() {
+        BarcoDeTresCanos barcodetrescanos = new BarcoDeTresCanos(3,3,ESQUERDA);
+        assertEquals(3, barcodetrescanos.pontos.get(0).X);
+        assertEquals(3, barcodetrescanos.pontos.get(0).Y);
+        assertEquals(2, barcodetrescanos.pontos.get(1).X);
+        assertEquals(3, barcodetrescanos.pontos.get(1).Y);
+        assertEquals(1, barcodetrescanos.pontos.get(2).X);
+        assertEquals(3, barcodetrescanos.pontos.get(2).Y);
         
     }
 }
