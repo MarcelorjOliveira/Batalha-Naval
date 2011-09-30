@@ -70,7 +70,7 @@ public class Barco{
         }
     }
      
-       private void criaPontosaDireita() {
+       protected void criaPontosaDireita() {
        int contador;
        for(contador = 0 ; contador < tamanho ; contador++)
        {
@@ -81,7 +81,7 @@ public class Barco{
        }
        }
 
-    private void criaPontosAbaixo() {
+    protected void criaPontosAbaixo() {
       int contador;
       for(contador = 0 ; contador < tamanho ; contador++)
       {
@@ -92,7 +92,7 @@ public class Barco{
       }
     }
 
-    private void criaPontosaEsquerda() {
+    protected void criaPontosaEsquerda() {
        int contador;
        for(contador = 0 ; contador < tamanho ; contador++)
        {
@@ -103,7 +103,7 @@ public class Barco{
        }
     }
 
-    private void criaPontosAcima() {
+    protected void criaPontosAcima() {
        int contador;
        for(contador = 0 ; contador < tamanho ; contador++)
        {

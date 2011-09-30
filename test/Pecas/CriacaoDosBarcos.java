@@ -123,9 +123,9 @@ public class CriacaoDosBarcos {
         assertEquals(3, barcodequatrocanos.pontos.get(3).Y);
     }
     
- /*   @Test
+    @Test
     public void criaPortaAviaoADireita() {
-        PortaAviao portaaviao = new PortaAviao(3,3,DIREITA);
+        PortaAviao portaaviao = new PortaAviao(3,3,PortaAviao.DIREITA);
         assertEquals(3, portaaviao.pontos.get(0).X);
         assertEquals(3, portaaviao.pontos.get(0).Y);
         assertEquals(4, portaaviao.pontos.get(1).X);
@@ -140,7 +140,7 @@ public class CriacaoDosBarcos {
     
     @Test
     public void criaPortaAviaoAcima() {
-        PortaAviao portaaviao = new PortaAviao(3,3,CIMA);
+        PortaAviao portaaviao = new PortaAviao(3,3,PortaAviao.CIMA);
         assertEquals(3, portaaviao.pontos.get(0).X);
         assertEquals(3, portaaviao.pontos.get(0).Y);
         assertEquals(3, portaaviao.pontos.get(1).X);
@@ -151,6 +151,6 @@ public class CriacaoDosBarcos {
         assertEquals(1, portaaviao.pontos.get(3).Y);
         assertEquals(4, portaaviao.pontos.get(4).X);
         assertEquals(1, portaaviao.pontos.get(4).Y);
-    }*/
+    }
 }
 

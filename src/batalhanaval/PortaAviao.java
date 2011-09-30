@@ -4,8 +4,6 @@
  */
 package batalhanaval;
 
-import java.util.ArrayList;
-
 /**
  *
  * @author marcelo
@@ -18,7 +16,8 @@ public class PortaAviao extends Barco{
         criaPontosBaseadoEmDirecao(direcao);
     }
     
-    private void criaPontosaDireita() {
+    @Override
+    protected void criaPontosaDireita() {
         Ponto ponto2 = new Ponto();
         ponto2.X = pontos.get(0).X + 1;
         ponto2.Y = pontos.get(0).Y;
@@ -40,7 +39,8 @@ public class PortaAviao extends Barco{
         pontos.add(ponto5);
     }
 
-    private void criaPontosAbaixo() {
+    @Override
+    protected void criaPontosAbaixo() {
         Ponto ponto2 = new Ponto();
         ponto2.X = pontos.get(0).X;
         ponto2.Y = pontos.get(0).Y + 1;
@@ -52,17 +52,18 @@ public class PortaAviao extends Barco{
         pontos.add(ponto3);
         
         Ponto ponto4 = new Ponto();
-        ponto4.X = pontos.get(2).X - 1;
+        ponto4.X = pontos.get(2).X + 1;
         ponto4.Y = pontos.get(2).Y;
         pontos.add(ponto4);
         
         Ponto ponto5 = new Ponto();
-        ponto5.X = pontos.get(2).X + 1;
+        ponto5.X = pontos.get(2).X - 1;
         ponto5.Y = pontos.get(2).Y;
         pontos.add(ponto5);
     }
 
-    private void criaPontosaEsquerda() {
+    @Override
+    protected void criaPontosaEsquerda() {
         Ponto ponto2 = new Ponto();
         ponto2.X = pontos.get(0).X - 1;
         ponto2.Y = pontos.get(0).Y;
@@ -84,7 +85,8 @@ public class PortaAviao extends Barco{
         pontos.add(ponto5);
     }
 
-    private void criaPontosAcima() {
+    @Override
+    protected void criaPontosAcima() {
         Ponto ponto2 = new Ponto();
         ponto2.X = pontos.get(0).X;
         ponto2.Y = pontos.get(0).Y - 1;
