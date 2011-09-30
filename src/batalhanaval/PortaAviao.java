@@ -10,46 +10,12 @@ import java.util.ArrayList;
  *
  * @author marcelo
  */
-public class PortaAviao {
-    
-    private final int DIREITA = 1;
-    private final int BAIXO = 2;
-    private final int ESQUERDA = 3;
-    private final int CIMA = 4;
-    
-    public ArrayList<Ponto> pontos = new ArrayList<Ponto>();
+public class PortaAviao extends Barco{
     
     public PortaAviao(int XOrigem, int YOrigem, int direcao)
     {
-        criaPontoInicial(XOrigem,YOrigem);
-        criaPontoBaseadoEmDirecao(direcao);
-    }
-
-    private void criaPontoInicial(int XOrigem, int YOrigem)
-    {
-        Ponto ponto = new Ponto();
-        ponto.X = XOrigem;
-        ponto.Y = YOrigem;
-        pontos.add(ponto);
-    }
-    
-    private void criaPontoBaseadoEmDirecao(int direcao)
-    {
-        switch(direcao)
-        {
-            case DIREITA:
-                criaPontosaDireita();
-                break;
-            case BAIXO:
-                criaPontosAbaixo();
-                break;
-            case ESQUERDA:
-                criaPontosaEsquerda();
-                break;
-            case CIMA:
-                criaPontosAcima();
-                break;
-        }
+        super(XOrigem,YOrigem);
+        criaPontosBaseadoEmDirecao(direcao);
     }
     
     private void criaPontosaDireita() {
