@@ -5,6 +5,7 @@ package Pecas;
  * and open the template in the editor.
  */
 
+import batalhanaval.PortaAviao;
 import batalhanaval.BarcoDeQuatroCanos;
 import batalhanaval.BarcoDeTresCanos;
 import batalhanaval.BarcoDeDoisCanos;
@@ -127,6 +128,36 @@ public class CriacaoDasPecas {
         assertEquals(3, barcodequatrocanos.pontos.get(2).Y);
         assertEquals(6, barcodequatrocanos.pontos.get(3).X);
         assertEquals(3, barcodequatrocanos.pontos.get(3).Y);
+    }
+    
+    @Test
+    public void criaPortaAviaoADireita() {
+        PortaAviao portaaviao = new PortaAviao(3,3,DIREITA);
+        assertEquals(3, portaaviao.pontos.get(0).X);
+        assertEquals(3, portaaviao.pontos.get(0).Y);
+        assertEquals(4, portaaviao.pontos.get(1).X);
+        assertEquals(3, portaaviao.pontos.get(1).Y);
+        assertEquals(5, portaaviao.pontos.get(2).X);
+        assertEquals(3, portaaviao.pontos.get(2).Y);
+        assertEquals(5, portaaviao.pontos.get(3).X);
+        assertEquals(2, portaaviao.pontos.get(3).Y);
+        assertEquals(5, portaaviao.pontos.get(4).X);
+        assertEquals(4, portaaviao.pontos.get(4).Y);
+    }
+    
+    @Test
+    public void criaPortaAviaoAcima() {
+        PortaAviao portaaviao = new PortaAviao(3,3,CIMA);
+        assertEquals(3, portaaviao.pontos.get(0).X);
+        assertEquals(3, portaaviao.pontos.get(0).Y);
+        assertEquals(3, portaaviao.pontos.get(1).X);
+        assertEquals(2, portaaviao.pontos.get(1).Y);
+        assertEquals(3, portaaviao.pontos.get(2).X);
+        assertEquals(1, portaaviao.pontos.get(2).Y);
+        assertEquals(2, portaaviao.pontos.get(3).X);
+        assertEquals(1, portaaviao.pontos.get(3).Y);
+        assertEquals(4, portaaviao.pontos.get(4).X);
+        assertEquals(1, portaaviao.pontos.get(4).Y);
     }
 }
 
