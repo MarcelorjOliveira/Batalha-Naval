@@ -24,5 +24,17 @@ public class Jogador {
     public Jogador oponente()
     {
         return oponente;
-    }   
+    }
+    
+    public ArrayList<Barco> barcos() {
+        return barcos;
+    }
+    
+   public void criaSubmarino(int X, int Y) throws BarcoForaDaCoordenadaDoTabuleiroException {
+    barcos.add(new Barco(X,Y,Barco.SUBMARINO));
+    }
+
+    public void criaBarcoDeDoisCanos(int X, int Y, int direcao) throws BarcoForaDaCoordenadaDoTabuleiroException {
+        barcos.add(new Barco(X,Y,Barco.BARCODEDOISCANOS, direcao));
+    }
 }

@@ -25,7 +25,7 @@ public class Barco{
     public static final int BARCODETRESCANOS = 3;
     public static final int BARCODEQUATROCANOS = 4;
     
-    private int posicoes;
+    private int tamanho;
     
     public Barco(int XOrigem, int YOrigem) throws BarcoForaDaCoordenadaDoTabuleiroException
     {
@@ -39,7 +39,7 @@ public class Barco{
     
     public Barco(int XOrigem, int YOrigem, int tamanho, int direcao) throws BarcoForaDaCoordenadaDoTabuleiroException
     {
-        this.posicoes = tamanho;
+        this.tamanho = tamanho;
         criaPontoInicial(XOrigem,YOrigem);
         criaPontosBaseadoEmDirecao(direcao);
     }
@@ -71,7 +71,7 @@ public class Barco{
      
        protected void criaPontosaDireita() throws BarcoForaDaCoordenadaDoTabuleiroException {
        int contador;
-       for(contador = 0 ; contador < posicoes ; contador++)
+       for(contador = 0 ; contador < tamanho ; contador++)
        {
         Ponto ponto = new Ponto(pontos.get(contador).X + 1, pontos.get(contador).Y);
         pontos.add(ponto);
@@ -80,7 +80,7 @@ public class Barco{
 
     protected void criaPontosAbaixo() throws BarcoForaDaCoordenadaDoTabuleiroException {
       int contador;
-      for(contador = 0 ; contador < posicoes ; contador++)
+      for(contador = 0 ; contador < tamanho ; contador++)
       {
         Ponto ponto = new Ponto(pontos.get(contador).X, pontos.get(contador).Y + 1);
         pontos.add(ponto);
@@ -89,7 +89,7 @@ public class Barco{
 
     protected void criaPontosaEsquerda() throws BarcoForaDaCoordenadaDoTabuleiroException {
        int contador;
-       for(contador = 0 ; contador < posicoes ; contador++)
+       for(contador = 0 ; contador < tamanho ; contador++)
        {
         Ponto ponto = new Ponto(pontos.get(contador).X - 1, pontos.get(contador).Y);
         pontos.add(ponto);
@@ -99,13 +99,33 @@ public class Barco{
     protected void criaPontosAcima() throws BarcoForaDaCoordenadaDoTabuleiroException {
        int contador;
        Ponto ponto;
-       for(contador = 0 ; contador < posicoes ; contador++)
+       for(contador = 0 ; contador < tamanho ; contador++)
        {
          int novoX = pontos.get(contador).X;
          int novoY = pontos.get(contador).Y - 1;
          ponto = new Ponto(novoX, novoY);
         pontos.add(ponto);
        }
+    }
+    
+    @Override
+    public boolean equals(Object objeto) {
+        Barco barco = (Barco)objeto;
+        int contador = 0;
+        do
+        {
+            if(pontos.get(contador).X != barco.pontos.get(contador).X)
+            {
+                return false;
+            }
+            if(pontos.get(contador).Y != barco.pontos.get(contador).Y)
+            {
+                return false;
+            }
+            contador++;
+        }
+        while(contador < tamanho);
+        return true;
     }
     
 }

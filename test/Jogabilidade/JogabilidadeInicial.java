@@ -4,6 +4,8 @@
  */
 package Jogabilidade;
 
+import batalhanaval.Barco;
+import batalhanaval.BarcoForaDaCoordenadaDoTabuleiroException;
 import batalhanaval.Jogador;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -38,5 +40,22 @@ public class JogabilidadeInicial {
     assertSame(jogador2, jogador1.oponente());
     assertSame(jogador1, jogador2.oponente());
         
+    }
+    
+    @Test
+    public void sejogadorCriaSubmarino() throws BarcoForaDaCoordenadaDoTabuleiroException {
+        jogador1.criaSubmarino(3,4);
+        Barco submarino = new Barco(3,4, Barco.SUBMARINO);
+        assertTrue(jogador1.barcos().get(0).equals(submarino));
+       
+        /*assertEquals(jogador1.barcos().get(0).pontos.get(0).X,submarino.pontos.get(0).X);
+        assertEquals(jogador1.barcos().get(0).pontos.get(0).Y,submarino.pontos.get(0).Y);*/
+    }
+    
+    @Test
+    public void sejogadorCriaBarcoDeDoisCanos() throws BarcoForaDaCoordenadaDoTabuleiroException {
+        jogador1.criaBarcoDeDoisCanos(3,4,Barco.DIREITA);
+        Barco barcodedoiscanos = new Barco(3,4, Barco.BARCODEDOISCANOS, Barco.DIREITA);
+        assertTrue(jogador1.barcos().get(0).equals(barcodedoiscanos));
     }
 }
