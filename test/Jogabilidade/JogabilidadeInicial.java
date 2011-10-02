@@ -4,6 +4,7 @@
  */
 package Jogabilidade;
 
+import batalhanaval.PortaAviao;
 import batalhanaval.Barco;
 import batalhanaval.BarcoForaDaCoordenadaDoTabuleiroException;
 import batalhanaval.Jogador;
@@ -47,9 +48,6 @@ public class JogabilidadeInicial {
         jogador1.criaSubmarino(3,4);
         Barco submarino = new Barco(3,4, Barco.SUBMARINO);
         assertTrue(jogador1.barcos().get(0).equals(submarino));
-       
-        /*assertEquals(jogador1.barcos().get(0).pontos.get(0).X,submarino.pontos.get(0).X);
-        assertEquals(jogador1.barcos().get(0).pontos.get(0).Y,submarino.pontos.get(0).Y);*/
     }
     
     @Test
@@ -57,5 +55,26 @@ public class JogabilidadeInicial {
         jogador1.criaBarcoDeDoisCanos(3,4,Barco.DIREITA);
         Barco barcodedoiscanos = new Barco(3,4, Barco.BARCODEDOISCANOS, Barco.DIREITA);
         assertTrue(jogador1.barcos().get(0).equals(barcodedoiscanos));
+    }
+    
+    @Test
+    public void sejogadorCriaBarcoDeTresCanos() throws BarcoForaDaCoordenadaDoTabuleiroException {
+        jogador1.criaBarcoDeTresCanos(3,4,Barco.DIREITA);
+        Barco barcodetrescanos = new Barco(3,4, Barco.BARCODETRESCANOS, Barco.DIREITA);
+        assertTrue(jogador1.barcos().get(0).equals(barcodetrescanos));
+    }
+    
+    @Test
+    public void sejogadorCriaBarcoDeQuatroCanos() throws BarcoForaDaCoordenadaDoTabuleiroException {
+        jogador1.criaBarcoDeQuatroCanos(3,4,Barco.DIREITA);
+        Barco barcodequatrocanos = new Barco(3,4, Barco.BARCODEQUATROCANOS, Barco.DIREITA);
+        assertTrue(jogador1.barcos().get(0).equals(barcodequatrocanos));
+    }
+    
+    @Test
+    public void sejogadorCriaPortaAviao() throws BarcoForaDaCoordenadaDoTabuleiroException {
+        jogador1.criaPortaAviao(3,4,Barco.DIREITA);
+        PortaAviao portaaviao = new PortaAviao(3,4,Barco.DIREITA);
+        assertTrue(jogador1.barcos().get(0).equals(portaaviao));
     }
 }

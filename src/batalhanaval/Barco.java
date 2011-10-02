@@ -35,6 +35,7 @@ public class Barco{
     public Barco(int XOrigem, int YOrigem, int tamanho) throws BarcoForaDaCoordenadaDoTabuleiroException
     {
         criaPontoInicial(XOrigem,YOrigem);
+        this.tamanho = tamanho;
     }
     
     public Barco(int XOrigem, int YOrigem, int tamanho, int direcao) throws BarcoForaDaCoordenadaDoTabuleiroException

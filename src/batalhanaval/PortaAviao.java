@@ -10,9 +10,11 @@ package batalhanaval;
  */
 public class PortaAviao extends Barco{
     
+    private static int TAMANHO = 5;
+    
     public PortaAviao(int XOrigem, int YOrigem, int direcao) throws BarcoForaDaCoordenadaDoTabuleiroException
     {
-        super(XOrigem,YOrigem);
+        super(XOrigem,YOrigem,TAMANHO);
         criaPontosBaseadoEmDirecao(direcao);
     }
     

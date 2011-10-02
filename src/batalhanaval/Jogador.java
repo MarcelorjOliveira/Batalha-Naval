@@ -37,4 +37,16 @@ public class Jogador {
     public void criaBarcoDeDoisCanos(int X, int Y, int direcao) throws BarcoForaDaCoordenadaDoTabuleiroException {
         barcos.add(new Barco(X,Y,Barco.BARCODEDOISCANOS, direcao));
     }
+
+    public void criaBarcoDeTresCanos(int X, int Y, int direcao) throws BarcoForaDaCoordenadaDoTabuleiroException {
+        barcos.add(new Barco(X,Y,Barco.BARCODETRESCANOS, direcao));
+    }
+
+    public void criaBarcoDeQuatroCanos(int X, int Y, int direcao) throws BarcoForaDaCoordenadaDoTabuleiroException {
+        barcos.add(new Barco(X,Y,Barco.BARCODEQUATROCANOS, direcao));
+    }
+
+    public void criaPortaAviao(int X, int Y, int direcao) throws BarcoForaDaCoordenadaDoTabuleiroException {
+        barcos.add(new PortaAviao(X,Y,direcao));
+    }
 }
