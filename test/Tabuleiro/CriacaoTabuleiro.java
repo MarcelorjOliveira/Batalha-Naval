@@ -22,28 +22,16 @@ public class CriacaoTabuleiro {
     
     public CriacaoTabuleiro() {
     }
-
-    @BeforeClass
-    public static void setUpClass() throws Exception {
-    }
-
-    @AfterClass
-    public static void tearDownClass() throws Exception {
-    }
     
     @Before
     public void setUp() {
         tabuleiro = new Tabuleiro();
     }
     
-    @After
-    public void tearDown() {
-    }
     
     @Test
     public void testaTamanhoTabuleiro()
     {
-        assertEquals(10, tabuleiro.largura);
-        assertEquals(10, tabuleiro.altura);
+        assertEquals(10, Tabuleiro.tamanho);
     }
 }

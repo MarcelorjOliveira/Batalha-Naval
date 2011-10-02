@@ -10,6 +10,7 @@ import java.util.ArrayList;
  *
  * @author marcelo
  */
+
 public class Barco{
     
     public ArrayList<Ponto> pontos = new ArrayList<Ponto>();
@@ -24,34 +25,32 @@ public class Barco{
     public static final int BARCODETRESCANOS = 3;
     public static final int BARCODEQUATROCANOS = 4;
     
-    private int tamanho;
+    private int posicoes;
     
-    public Barco(int XOrigem, int YOrigem)
+    public Barco(int XOrigem, int YOrigem) throws BarcoForaDaCoordenadaDoTabuleiroException
     {
         criaPontoInicial(XOrigem,YOrigem);
     }
     
-    public Barco(int XOrigem, int YOrigem, int tamanho)
+    public Barco(int XOrigem, int YOrigem, int tamanho) throws BarcoForaDaCoordenadaDoTabuleiroException
     {
         criaPontoInicial(XOrigem,YOrigem);
     }
     
-    public Barco(int XOrigem, int YOrigem, int tamanho, int direcao)
+    public Barco(int XOrigem, int YOrigem, int tamanho, int direcao) throws BarcoForaDaCoordenadaDoTabuleiroException
     {
-        this.tamanho = tamanho;
+        this.posicoes = tamanho;
         criaPontoInicial(XOrigem,YOrigem);
         criaPontosBaseadoEmDirecao(direcao);
     }
     
-    protected void criaPontoInicial(int XOrigem, int YOrigem)
+    protected void criaPontoInicial(int XOrigem, int YOrigem) throws BarcoForaDaCoordenadaDoTabuleiroException
     {
-        Ponto ponto = new Ponto();
-        ponto.X = XOrigem;
-        ponto.Y = YOrigem;
+        Ponto ponto = new Ponto(XOrigem,YOrigem);
         pontos.add(ponto);
     }
     
-    protected void criaPontosBaseadoEmDirecao(int direcao)
+    protected void criaPontosBaseadoEmDirecao(int direcao) throws BarcoForaDaCoordenadaDoTabuleiroException
     {
         switch(direcao)
         {
@@ -70,46 +69,41 @@ public class Barco{
         }
     }
      
-       protected void criaPontosaDireita() {
+       protected void criaPontosaDireita() throws BarcoForaDaCoordenadaDoTabuleiroException {
        int contador;
-       for(contador = 0 ; contador < tamanho ; contador++)
+       for(contador = 0 ; contador < posicoes ; contador++)
        {
-        Ponto ponto = new Ponto();
-        ponto.X = pontos.get(contador).X + 1;
-        ponto.Y = pontos.get(contador).Y;
+        Ponto ponto = new Ponto(pontos.get(contador).X + 1, pontos.get(contador).Y);
         pontos.add(ponto);
        }
        }
 
-    protected void criaPontosAbaixo() {
+    protected void criaPontosAbaixo() throws BarcoForaDaCoordenadaDoTabuleiroException {
       int contador;
-      for(contador = 0 ; contador < tamanho ; contador++)
+      for(contador = 0 ; contador < posicoes ; contador++)
       {
-        Ponto ponto = new Ponto();
-        ponto.X = pontos.get(contador).X;
-        ponto.Y = pontos.get(contador).Y + 1;
+        Ponto ponto = new Ponto(pontos.get(contador).X, pontos.get(contador).Y + 1);
         pontos.add(ponto);
       }
     }
 
-    protected void criaPontosaEsquerda() {
+    protected void criaPontosaEsquerda() throws BarcoForaDaCoordenadaDoTabuleiroException {
        int contador;
-       for(contador = 0 ; contador < tamanho ; contador++)
+       for(contador = 0 ; contador < posicoes ; contador++)
        {
-        Ponto ponto = new Ponto();
-        ponto.X = pontos.get(contador).X - 1;
-        ponto.Y = pontos.get(contador).Y;
+        Ponto ponto = new Ponto(pontos.get(contador).X - 1, pontos.get(contador).Y);
         pontos.add(ponto);
        }
     }
 
-    protected void criaPontosAcima() {
+    protected void criaPontosAcima() throws BarcoForaDaCoordenadaDoTabuleiroException {
        int contador;
-       for(contador = 0 ; contador < tamanho ; contador++)
+       Ponto ponto;
+       for(contador = 0 ; contador < posicoes ; contador++)
        {
-        Ponto ponto = new Ponto();
-        ponto.X = pontos.get(contador).X;
-        ponto.Y = pontos.get(contador).Y - 1;
+         int novoX = pontos.get(contador).X;
+         int novoY = pontos.get(contador).Y - 1;
+         ponto = new Ponto(novoX, novoY);
         pontos.add(ponto);
        }
     }

@@ -5,6 +5,7 @@ package Pecas;
  * and open the template in the editor.
  */
 
+import batalhanaval.BarcoForaDaCoordenadaDoTabuleiroException;
 import batalhanaval.PortaAviao;
 import batalhanaval.Barco;
 import batalhanaval.Tabuleiro;
@@ -19,11 +20,14 @@ import static org.junit.Assert.*;
  *
  * @author marcelo
  */
+
+//TODO Barco não ser criado fora do Tabuleiro
+// TODO Se um barco não é criado em cima dos outros
 public class CriacaoDosBarcos {
 
     private Tabuleiro tabuleiro;
 
-    public CriacaoDosBarcos() {
+    public CriacaoDosBarcos() throws BarcoForaDaCoordenadaDoTabuleiroException {
     }
 
     @BeforeClass
@@ -35,7 +39,7 @@ public class CriacaoDosBarcos {
     }
 
     @Before
-    public void setUp() {
+    public void setUp() throws BarcoForaDaCoordenadaDoTabuleiroException {
         tabuleiro = new Tabuleiro();
     }
 
@@ -43,15 +47,21 @@ public class CriacaoDosBarcos {
     public void tearDown() {
     }
 
+    /*
+    @Test(expected = BarcoForaDaCoordenadaDoTabuleiroException.class)
+    public void naocriaBarcoEmCoordenadaForaDoTabuleiro() throws BarcoForaDaCoordenadaDoTabuleiroException {
+        Barco submarino = new Barco(11,3, Barco.SUBMARINO);
+    }*/
+    
     @Test
-    public void criaSubmarino() {
+    public void criaSubmarino() throws BarcoForaDaCoordenadaDoTabuleiroException {
         Barco submarino = new Barco(2,3, Barco.SUBMARINO);
         assertEquals(2, submarino.pontos.get(0).X);
         assertEquals(3, submarino.pontos.get(0).Y);
     }
 
     @Test
-    public void criaBarcoDeDoisCanosADireita() {
+    public void criaBarcoDeDoisCanosADireita() throws BarcoForaDaCoordenadaDoTabuleiroException {
         Barco barcodedoiscanos = new Barco(2,3,Barco.BARCODEDOISCANOS,Barco.DIREITA);
         assertEquals(2, barcodedoiscanos.pontos.get(0).X);
         assertEquals(3, barcodedoiscanos.pontos.get(0).Y);
@@ -60,7 +70,7 @@ public class CriacaoDosBarcos {
     }
 
     @Test
-    public void criaBarcoDeDoisCanosAcima() {
+    public void criaBarcoDeDoisCanosAcima() throws BarcoForaDaCoordenadaDoTabuleiroException {
         Barco barcodedoiscanos = new Barco(2,3,Barco.BARCODEDOISCANOS,Barco.CIMA);
         assertEquals(2, barcodedoiscanos.pontos.get(0).X);
         assertEquals(3, barcodedoiscanos.pontos.get(0).Y);
@@ -68,7 +78,7 @@ public class CriacaoDosBarcos {
         assertEquals(2, barcodedoiscanos.pontos.get(1).Y);
 }
 
-    public void criaBarcoDeDoisCanosAbaixo() {
+    public void criaBarcoDeDoisCanosAbaixo() throws BarcoForaDaCoordenadaDoTabuleiroException {
         Barco barcodedoiscanos = new Barco(2,3,Barco.BARCODEDOISCANOS,Barco.BAIXO);
         assertEquals(2, barcodedoiscanos.pontos.get(0).X);
         assertEquals(3, barcodedoiscanos.pontos.get(0).Y);
@@ -78,7 +88,7 @@ public class CriacaoDosBarcos {
     }
 
     @Test
-    public void criaBarcoDeTresCanosAcima() {
+    public void criaBarcoDeTresCanosAcima() throws BarcoForaDaCoordenadaDoTabuleiroException {
         Barco barcodetrescanos = new Barco(2,3,Barco.BARCODETRESCANOS,Barco.CIMA);
         assertEquals(2, barcodetrescanos.pontos.get(0).X);
         assertEquals(3, barcodetrescanos.pontos.get(0).Y);
@@ -89,7 +99,7 @@ public class CriacaoDosBarcos {
     }
 
     @Test
-    public void criaBarcoDeTresCanosAEsquerda() {
+    public void criaBarcoDeTresCanosAEsquerda() throws BarcoForaDaCoordenadaDoTabuleiroException {
         Barco barcodetrescanos = new Barco(3,3,Barco.BARCODETRESCANOS,Barco.ESQUERDA);
         assertEquals(3, barcodetrescanos.pontos.get(0).X);
         assertEquals(3, barcodetrescanos.pontos.get(0).Y);
@@ -100,7 +110,7 @@ public class CriacaoDosBarcos {
     }
 
     @Test
-    public void criaBarcoDeTresCanosAbaixo() {
+    public void criaBarcoDeTresCanosAbaixo() throws BarcoForaDaCoordenadaDoTabuleiroException {
         Barco barcodetrescanos = new Barco(3,3,Barco.BARCODETRESCANOS,Barco.BAIXO);
         assertEquals(3, barcodetrescanos.pontos.get(0).X);
         assertEquals(3, barcodetrescanos.pontos.get(0).Y);
@@ -111,7 +121,7 @@ public class CriacaoDosBarcos {
     }
 
     @Test
-    public void criaBarcoDeQuatroCanosADireita() {
+    public void criaBarcoDeQuatroCanosADireita() throws BarcoForaDaCoordenadaDoTabuleiroException {
         Barco barcodequatrocanos = new Barco(3,3,Barco.BARCODEQUATROCANOS,Barco.DIREITA);
         assertEquals(3, barcodequatrocanos.pontos.get(0).X);
         assertEquals(3, barcodequatrocanos.pontos.get(0).Y);
@@ -124,7 +134,7 @@ public class CriacaoDosBarcos {
     }
     
     @Test
-    public void criaPortaAviaoADireita() {
+    public void criaPortaAviaoADireita() throws BarcoForaDaCoordenadaDoTabuleiroException {
         PortaAviao portaaviao = new PortaAviao(3,3,PortaAviao.DIREITA);
         assertEquals(3, portaaviao.pontos.get(0).X);
         assertEquals(3, portaaviao.pontos.get(0).Y);
@@ -139,7 +149,7 @@ public class CriacaoDosBarcos {
     }
     
     @Test
-    public void criaPortaAviaoAcima() {
+    public void criaPortaAviaoAcima() throws BarcoForaDaCoordenadaDoTabuleiroException {
         PortaAviao portaaviao = new PortaAviao(3,3,PortaAviao.CIMA);
         assertEquals(3, portaaviao.pontos.get(0).X);
         assertEquals(3, portaaviao.pontos.get(0).Y);
@@ -152,5 +162,6 @@ public class CriacaoDosBarcos {
         assertEquals(4, portaaviao.pontos.get(4).X);
         assertEquals(1, portaaviao.pontos.get(4).Y);
     }
+    
 }
 

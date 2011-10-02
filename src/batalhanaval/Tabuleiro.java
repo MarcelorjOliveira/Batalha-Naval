@@ -11,6 +11,5 @@ package batalhanaval;
  */
 public class Tabuleiro {
     
-    public int largura = 10;
-    public int altura = 10;
+    public static final int tamanho = 10;
 }

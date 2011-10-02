@@ -10,101 +10,70 @@ package batalhanaval;
  */
 public class PortaAviao extends Barco{
     
-    public PortaAviao(int XOrigem, int YOrigem, int direcao)
+    public PortaAviao(int XOrigem, int YOrigem, int direcao) throws BarcoForaDaCoordenadaDoTabuleiroException
     {
         super(XOrigem,YOrigem);
         criaPontosBaseadoEmDirecao(direcao);
     }
     
     @Override
-    protected void criaPontosaDireita() {
-        Ponto ponto2 = new Ponto();
-        ponto2.X = pontos.get(0).X + 1;
-        ponto2.Y = pontos.get(0).Y;
+    protected void criaPontosaDireita() throws BarcoForaDaCoordenadaDoTabuleiroException {
+        Ponto ponto2 = new Ponto(pontos.get(0).X + 1,pontos.get(0).Y);
         pontos.add(ponto2);
         
-        Ponto ponto3 = new Ponto();
-        ponto3.X = pontos.get(1).X + 1;
-        ponto3.Y = pontos.get(1).Y;
+        Ponto ponto3 = new Ponto(pontos.get(1).X + 1, pontos.get(1).Y);
         pontos.add(ponto3);
         
-        Ponto ponto4 = new Ponto();
-        ponto4.X = pontos.get(2).X;
-        ponto4.Y = pontos.get(2).Y - 1;
+        Ponto ponto4 = new Ponto(pontos.get(2).X, pontos.get(2).Y - 1);
         pontos.add(ponto4);
         
-        Ponto ponto5 = new Ponto();
-        ponto5.X = pontos.get(2).X;
-        ponto5.Y = pontos.get(2).Y + 1;
+        Ponto ponto5 = new Ponto(pontos.get(2).X, pontos.get(2).Y + 1);
         pontos.add(ponto5);
     }
 
     @Override
-    protected void criaPontosAbaixo() {
-        Ponto ponto2 = new Ponto();
-        ponto2.X = pontos.get(0).X;
-        ponto2.Y = pontos.get(0).Y + 1;
+    protected void criaPontosAbaixo() throws BarcoForaDaCoordenadaDoTabuleiroException {
+        Ponto ponto2 = new Ponto(pontos.get(0).X, pontos.get(0).Y + 1);
         pontos.add(ponto2);
         
-        Ponto ponto3 = new Ponto();
-        ponto3.X = pontos.get(1).X;
-        ponto3.Y = pontos.get(1).Y + 1;
+        Ponto ponto3 = new Ponto(pontos.get(1).X, pontos.get(1).Y + 1);
         pontos.add(ponto3);
         
-        Ponto ponto4 = new Ponto();
-        ponto4.X = pontos.get(2).X + 1;
-        ponto4.Y = pontos.get(2).Y;
+        Ponto ponto4 = new Ponto(pontos.get(2).X + 1, pontos.get(2).Y);
+
         pontos.add(ponto4);
         
-        Ponto ponto5 = new Ponto();
-        ponto5.X = pontos.get(2).X - 1;
-        ponto5.Y = pontos.get(2).Y;
+        Ponto ponto5 = new Ponto(pontos.get(2).X - 1, pontos.get(2).Y);
         pontos.add(ponto5);
     }
 
     @Override
-    protected void criaPontosaEsquerda() {
-        Ponto ponto2 = new Ponto();
-        ponto2.X = pontos.get(0).X - 1;
-        ponto2.Y = pontos.get(0).Y;
+    protected void criaPontosaEsquerda() throws BarcoForaDaCoordenadaDoTabuleiroException {
+        Ponto ponto2 = new Ponto(pontos.get(0).X - 1, pontos.get(0).Y);
         pontos.add(ponto2);
         
-        Ponto ponto3 = new Ponto();
-        ponto3.X = pontos.get(1).X - 1;
-        ponto3.Y = pontos.get(1).Y;
+        Ponto ponto3 = new Ponto(pontos.get(1).X - 1, pontos.get(1).Y);
         pontos.add(ponto3);
         
-        Ponto ponto4 = new Ponto();
-        ponto4.X = pontos.get(2).X;
-        ponto4.Y = pontos.get(2).Y + 1;
+        Ponto ponto4 = new Ponto(pontos.get(2).X, pontos.get(2).Y + 1);
         pontos.add(ponto4);
         
-        Ponto ponto5 = new Ponto();
-        ponto5.X = pontos.get(2).X;
-        ponto5.Y = pontos.get(2).Y - 1;
+        Ponto ponto5 = new Ponto(pontos.get(2).X, pontos.get(2).Y - 1);
         pontos.add(ponto5);
     }
 
     @Override
-    protected void criaPontosAcima() {
-        Ponto ponto2 = new Ponto();
-        ponto2.X = pontos.get(0).X;
-        ponto2.Y = pontos.get(0).Y - 1;
+    protected void criaPontosAcima() throws BarcoForaDaCoordenadaDoTabuleiroException {
+        Ponto ponto2 = new Ponto(pontos.get(0).X, pontos.get(0).Y - 1);
         pontos.add(ponto2);
         
-        Ponto ponto3 = new Ponto();
-        ponto3.X = pontos.get(1).X;
-        ponto3.Y = pontos.get(1).Y - 1;
+        Ponto ponto3 = new Ponto(pontos.get(1).X, pontos.get(1).Y - 1);
         pontos.add(ponto3);
         
-        Ponto ponto4 = new Ponto();
-        ponto4.X = pontos.get(2).X - 1;
-        ponto4.Y = pontos.get(2).Y;
+        Ponto ponto4 = new Ponto(pontos.get(2).X - 1, pontos.get(2).Y);
         pontos.add(ponto4);
         
-        Ponto ponto5 = new Ponto();
-        ponto5.X = pontos.get(2).X + 1;
-        ponto5.Y = pontos.get(2).Y;
+        Ponto ponto5 = new Ponto(pontos.get(2).X + 1, pontos.get(2).Y);
         pontos.add(ponto5);
     }
 }
