@@ -54,6 +54,7 @@ public class Barco{
     
     protected void criaPontosBaseadoEmDirecao(int direcao) throws BarcoForaDaCoordenadaDoTabuleiroException
     {
+        
         switch(direcao)
         {
             case DIREITA:
@@ -73,7 +74,8 @@ public class Barco{
      
        protected void criaPontosaDireita() throws BarcoForaDaCoordenadaDoTabuleiroException {
        int contador;
-       for(contador = 0 ; contador < tamanho ; contador++)
+       int tamanhoAtual = tamanho - 1;
+       for(contador = 0 ; contador < tamanhoAtual ; contador++)
        {
         Ponto ponto = new Ponto(pontos.get(contador).X + 1, pontos.get(contador).Y);
         pontos.add(ponto);
@@ -82,7 +84,8 @@ public class Barco{
 
     protected void criaPontosAbaixo() throws BarcoForaDaCoordenadaDoTabuleiroException {
       int contador;
-      for(contador = 0 ; contador < tamanho ; contador++)
+      int tamanhoAtual = tamanho - 1;
+      for(contador = 0 ; contador < tamanhoAtual ; contador++)
       {
         Ponto ponto = new Ponto(pontos.get(contador).X, pontos.get(contador).Y + 1);
         pontos.add(ponto);
@@ -91,7 +94,8 @@ public class Barco{
 
     protected void criaPontosaEsquerda() throws BarcoForaDaCoordenadaDoTabuleiroException {
        int contador;
-       for(contador = 0 ; contador < tamanho ; contador++)
+       int tamanhoAtual = tamanho - 1;
+       for(contador = 0 ; contador < tamanhoAtual ; contador++)
        {
         Ponto ponto = new Ponto(pontos.get(contador).X - 1, pontos.get(contador).Y);
         pontos.add(ponto);
@@ -101,11 +105,10 @@ public class Barco{
     protected void criaPontosAcima() throws BarcoForaDaCoordenadaDoTabuleiroException {
        int contador;
        Ponto ponto;
-       for(contador = 0 ; contador < tamanho ; contador++)
+       int tamanhoAtual = tamanho - 1;
+       for(contador = 0 ; contador < tamanhoAtual ; contador++)
        {
-         int novoX = pontos.get(contador).X;
-         int novoY = pontos.get(contador).Y - 1;
-         ponto = new Ponto(novoX, novoY);
+         ponto = new Ponto(pontos.get(contador).X, pontos.get(contador).Y - 1);
         pontos.add(ponto);
        }
     }
