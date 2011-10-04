@@ -5,7 +5,9 @@ package Pecas;
  * and open the template in the editor.
  */
 
+import batalhanaval.Jogador;
 import batalhanaval.BarcoForaDaCoordenadaDoTabuleiroException;
+import batalhanaval.NaoPodeCriarUmBarcoEmCimaDoOutroException;
 import batalhanaval.PortaAviao;
 import batalhanaval.Barco;
 import batalhanaval.Tabuleiro;
@@ -18,11 +20,11 @@ import static org.junit.Assert.*;
  * @author marcelo
  */
 
-//TODO Barco não ser criado fora do Tabuleiro
 // TODO Se um barco não é criado em cima dos outros
 public class CriacaoDosBarcos {
 
     private Tabuleiro tabuleiro;
+    private Jogador jogador;
 
     public CriacaoDosBarcos() throws BarcoForaDaCoordenadaDoTabuleiroException {
     }
@@ -30,6 +32,7 @@ public class CriacaoDosBarcos {
     @Before
     public void setUp() throws BarcoForaDaCoordenadaDoTabuleiroException {
         tabuleiro = new Tabuleiro();
+        jogador = new Jogador("Jogador");
     }
 
     @Test(expected = BarcoForaDaCoordenadaDoTabuleiroException.class)
@@ -172,5 +175,10 @@ public class CriacaoDosBarcos {
         assertEquals(1, portaaviao.pontos.get(4).Y);
     }
     
+    @Test(expected=NaoPodeCriarUmBarcoEmCimaDoOutroException.class)
+    public void naoPodeCriarUmBarcoEmCimaDoOutro () throws BarcoForaDaCoordenadaDoTabuleiroException, NaoPodeCriarUmBarcoEmCimaDoOutroException {
+       jogador.criaSubmarino(3, 4);
+       jogador.criaSubmarino(3, 4);
+    }
 }
 

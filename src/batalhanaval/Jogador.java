@@ -4,6 +4,7 @@
  */
 package batalhanaval;
 
+import batalhanaval.NaoPodeCriarUmBarcoEmCimaDoOutroException;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
@@ -41,8 +42,22 @@ public class Jogador {
         return barcos;
     }
     
-   public void criaSubmarino(int X, int Y) throws BarcoForaDaCoordenadaDoTabuleiroException {
-    barcos.add(new Barco(X,Y,Barco.SUBMARINO));
+   public void criaSubmarino(int X, int Y) throws BarcoForaDaCoordenadaDoTabuleiroException, NaoPodeCriarUmBarcoEmCimaDoOutroException {
+       Barco submarino = new Barco(X,Y,Barco.SUBMARINO);
+       for(Ponto ponto : submarino.pontos)
+       {
+           for(Barco barco : barcos)
+           {
+               for(Ponto pontoBarcos : barco.pontos)
+               {
+                   if(ponto.equals(pontoBarcos)){
+                       throw new NaoPodeCriarUmBarcoEmCimaDoOutroException();
+                   }
+               }
+           }
+             
+       }
+       barcos.add(submarino);
     }
 
     public void criaBarcoDeDoisCanos(int X, int Y, int direcao) throws BarcoForaDaCoordenadaDoTabuleiroException {
