@@ -28,4 +28,15 @@ public class Ponto {
         this.X = coordenadaX;
         this.Y = coordenadaY;
     }
+    
+    @Override
+    public boolean equals(Object paramPonto)
+    {
+        Ponto ponto = (Ponto)paramPonto;
+        if((this.X == ponto.X) && (this.Y == ponto.Y)) 
+         {
+           return true;
+         }
+        return false;
+    }
 }

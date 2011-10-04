@@ -113,13 +113,14 @@ public class Jogador {
         }
     }
     
-    public String clica(int X, int Y) 
+    public String clica(int X, int Y) throws BarcoForaDaCoordenadaDoTabuleiroException 
     {
+        Ponto pontoParam = new Ponto(X,Y);
         for(Barco barco : oponente.barcos)
         {
             for(Ponto ponto : barco.pontos)
             {
-                  if((ponto.X == X) && (ponto.Y == Y)) 
+                  if(pontoParam.equals(ponto)) 
                   {
                       return "Acertou";
                   }

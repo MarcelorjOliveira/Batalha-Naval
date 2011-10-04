@@ -54,10 +54,18 @@ public class Jogadas {
         jogador2.criaBarcoDeTresCanos(4,10,Barco.ESQUERDA);
         jogador2.criaBarcoDeQuatroCanos(9,4,Barco.BAIXO);
     }
+    
     @Test
-    public void seJogadorClicaEmAgua() {
+    public void seJogadorClicaEmAgua() throws BarcoForaDaCoordenadaDoTabuleiroException {
       assertEquals("Agua",jogador1.clica(6,4));
       assertEquals("Agua",jogador1.clica(8,2));
       assertEquals("Agua",jogador1.clica(10,5));
+    }
+    
+    @Test
+    public void seJogadorAcerta() throws BarcoForaDaCoordenadaDoTabuleiroException {
+      assertEquals("Acertou",jogador1.clica(9,4));
+      assertEquals("Acertou",jogador1.clica(5,7));
+      assertEquals("Acertou",jogador1.clica(7,9));
     }
 }
