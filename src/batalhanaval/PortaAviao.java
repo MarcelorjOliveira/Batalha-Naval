@@ -78,4 +78,9 @@ public class PortaAviao extends Barco{
         Ponto ponto5 = new Ponto(pontos.get(2).X + 1, pontos.get(2).Y);
         pontos.add(ponto5);
     }
+    
+    @Override
+    public String tipoBarco() {
+      return "Porta Aviao";   
+    }
 }

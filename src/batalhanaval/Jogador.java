@@ -122,7 +122,15 @@ public class Jogador {
             {
                   if(pontoParam.equals(ponto)) 
                   {
-                      return "Acertou";
+                      barco.pontosAcertados.add(pontoParam);
+                      if(barco.pontosAcertados.size() == barco.pontos.size())
+                      {
+                          return barco.tipoBarco() + " destruido" ;
+                      }
+                      else
+                      {
+                        return "Acertou";
+                      }
                   }
             }
         }

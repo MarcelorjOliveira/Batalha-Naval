@@ -68,4 +68,11 @@ public class Jogadas {
       assertEquals("Acertou",jogador1.clica(5,7));
       assertEquals("Acertou",jogador1.clica(7,9));
     }
+    
+    @Test
+    public void seJogadorDestroiSubmarino() throws BarcoForaDaCoordenadaDoTabuleiroException {
+        assertEquals("Submarino destruido",jogador1.clica(8,3));
+        assertEquals("Submarino destruido",jogador1.clica(9,2));
+        assertEquals("Submarino destruido",jogador1.clica(2,7));
+    }
 }

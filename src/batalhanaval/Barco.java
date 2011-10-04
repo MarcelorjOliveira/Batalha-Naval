@@ -14,6 +14,7 @@ import java.util.ArrayList;
 public class Barco{
     
     public ArrayList<Ponto> pontos = new ArrayList<Ponto>();
+    public ArrayList<Ponto> pontosAcertados = new ArrayList<Ponto>();
     
     public static final int DIREITA = 1;
     public static final int BAIXO = 2;
@@ -133,4 +134,25 @@ public class Barco{
     {
         return tamanho;
     }      
+    
+    public String tipoBarco() 
+    {
+        String tipo = null;
+        switch(tamanho) 
+        {
+            case SUBMARINO:
+                tipo = "Submarino";
+                break;
+            case BARCODEDOISCANOS:
+                tipo = "Barco de Dois Canos";
+                break;
+            case Barco.BARCODETRESCANOS:
+                tipo = "Barco de Tres Canos";
+                break;
+            case BARCODEQUATROCANOS:
+                tipo = "Barco de Quatro Canos";
+                break;
+        }
+        return tipo;
+    }
 }
