@@ -8,10 +8,7 @@ import batalhanaval.PortaAviao;
 import batalhanaval.Barco;
 import batalhanaval.BarcoForaDaCoordenadaDoTabuleiroException;
 import batalhanaval.Jogador;
-import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -29,8 +26,8 @@ public class JogabilidadeInicial {
     
     @Before
     public void setUp() {
-        jogador1 = new Jogador();
-        jogador2 = new Jogador();
+        jogador1 = new Jogador("Jogador 1");
+        jogador2 = new Jogador("Jogador 2");
     }
 
     @Test

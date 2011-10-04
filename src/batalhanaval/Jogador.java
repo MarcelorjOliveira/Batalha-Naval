@@ -16,8 +16,15 @@ import java.util.ArrayList;
 // TODO se Jogador tenta clicar em uma região fora do Tabuleiro
 public class Jogador {
     
+    private String nome;
+    
     private Jogador oponente;
     private ArrayList<Barco> barcos = new ArrayList<Barco>();
+    private ArrayList<Barco> barcosDestruidos = new ArrayList<Barco>();
+    
+    public Jogador(String nome) {
+        this.nome = nome;
+    }
     
     public void desafia(Jogador jogador)
     {
@@ -127,7 +134,15 @@ public class Jogador {
                       barco.pontosAcertados.add(pontoParam);
                       if(barco.pontosAcertados.size() == barco.pontos.size())
                       {
-                          return barco.tipoBarco() + " destruído" ;
+                          oponente.barcosDestruidos.add(barco);
+                          if(oponente.barcosDestruidos.size() == oponente.barcos.size())
+                          {
+                              return nome + " Venceu";
+                          }
+                          else
+                          {
+                            return barco.tipoBarco() + " destruído" ;
+                          }
                       }
                       else
                       {

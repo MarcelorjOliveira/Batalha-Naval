@@ -7,10 +7,7 @@ package Jogabilidade;
 import batalhanaval.Barco;
 import batalhanaval.BarcoForaDaCoordenadaDoTabuleiroException;
 import batalhanaval.Jogador;
-import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -20,8 +17,8 @@ import static org.junit.Assert.*;
  */
 public class Jogadas {
     
-    Jogador jogador1 = new Jogador();
-    Jogador jogador2 = new Jogador();
+    Jogador jogador1 = new Jogador("Jogador 1");
+    Jogador jogador2 = new Jogador("Jogador 2");
     
     public Jogadas() {
     }
@@ -104,5 +101,41 @@ public class Jogadas {
         assertEquals("Acertou",jogador1.clica(4,2));
         assertEquals("Acertou",jogador1.clica(3,3));
         assertEquals("Porta Avião destruído",jogador1.clica(3,4));
+    }
+    
+    @Test
+    public void seJogadorVenceu() throws BarcoForaDaCoordenadaDoTabuleiroException {
+        assertEquals("Submarino destruído",jogador1.clica(8,3));
+        assertEquals("Submarino destruído",jogador1.clica(9,2));
+        assertEquals("Submarino destruído",jogador1.clica(2,7));
+        assertEquals("Submarino destruído",jogador1.clica(6,1));
+        
+        assertEquals("Acertou",jogador1.clica(5,7));
+        assertEquals("Barco de Dois Canos destruído",jogador1.clica(5,6));
+        
+        assertEquals("Acertou",jogador1.clica(7,6));
+        assertEquals("Barco de Dois Canos destruído",jogador1.clica(7,7));
+        
+        assertEquals("Acertou",jogador1.clica(4,9));
+        assertEquals("Barco de Dois Canos destruído",jogador1.clica(4,10));
+    
+        assertEquals("Acertou",jogador1.clica(3,10));
+        assertEquals("Acertou",jogador1.clica(2,10));
+        assertEquals("Barco de Três Canos destruído",jogador1.clica(1,10));
+        
+        assertEquals("Acertou",jogador1.clica(7,9));
+        assertEquals("Acertou",jogador1.clica(8,9));
+        assertEquals("Barco de Três Canos destruído",jogador1.clica(9,9));
+   
+        assertEquals("Acertou",jogador1.clica(9,7));
+        assertEquals("Acertou",jogador1.clica(9,6));
+        assertEquals("Acertou",jogador1.clica(9,5));
+        assertEquals("Barco de Quatro Canos destruído",jogador1.clica(9,4));
+    
+        assertEquals("Acertou",jogador1.clica(2,2));
+        assertEquals("Acertou",jogador1.clica(3,2));
+        assertEquals("Acertou",jogador1.clica(4,2));
+        assertEquals("Acertou",jogador1.clica(3,3));
+        assertEquals("Jogador 1 Venceu",jogador1.clica(3,4));
     }
 }
