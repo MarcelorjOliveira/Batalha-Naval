@@ -57,9 +57,9 @@ public class Jogadas {
  
     @Test
     public void seJogadorClicaEmAgua() throws BarcoForaDaCoordenadaDoTabuleiroException {
-      assertEquals("Agua",jogador1.clica(6,4));
-      assertEquals("Agua",jogador1.clica(8,2));
-      assertEquals("Agua",jogador1.clica(10,5));
+      assertEquals("Água",jogador1.clica(6,4));
+      assertEquals("Água",jogador1.clica(8,2));
+      assertEquals("Água",jogador1.clica(10,5));
     }
     
     @Test
@@ -71,22 +71,22 @@ public class Jogadas {
     
     @Test
     public void seJogadorDestroiSubmarino() throws BarcoForaDaCoordenadaDoTabuleiroException {
-        assertEquals("Submarino destruido",jogador1.clica(8,3));
-        assertEquals("Submarino destruido",jogador1.clica(9,2));
-        assertEquals("Submarino destruido",jogador1.clica(2,7));
+        assertEquals("Submarino destruído",jogador1.clica(8,3));
+        assertEquals("Submarino destruído",jogador1.clica(9,2));
+        assertEquals("Submarino destruído",jogador1.clica(2,7));
     }
     
     @Test
     public void seJogadorDestroiBarcoDeDoisCanos() throws BarcoForaDaCoordenadaDoTabuleiroException {
         assertEquals("Acertou",jogador1.clica(5,7));
-        assertEquals("Barco de Dois Canos destruido",jogador1.clica(5,6));
+        assertEquals("Barco de Dois Canos destruído",jogador1.clica(5,6));
     }
     
     @Test
     public void seJogadorDestroiBarcoDeTresCanos() throws BarcoForaDaCoordenadaDoTabuleiroException {
         assertEquals("Acertou",jogador1.clica(3,10));
         assertEquals("Acertou",jogador1.clica(2,10));
-        assertEquals("Barco de Tres Canos destruido",jogador1.clica(1,10));
+        assertEquals("Barco de Três Canos destruído",jogador1.clica(1,10));
     }
     
     @Test
@@ -94,7 +94,7 @@ public class Jogadas {
         assertEquals("Acertou",jogador1.clica(9,7));
         assertEquals("Acertou",jogador1.clica(9,6));
         assertEquals("Acertou",jogador1.clica(9,5));
-        assertEquals("Barco de Quatro Canos destruido",jogador1.clica(9,4));
+        assertEquals("Barco de Quatro Canos destruído",jogador1.clica(9,4));
     }
     
     @Test
@@ -103,6 +103,6 @@ public class Jogadas {
         assertEquals("Acertou",jogador1.clica(3,2));
         assertEquals("Acertou",jogador1.clica(4,2));
         assertEquals("Acertou",jogador1.clica(3,3));
-        assertEquals("Porta Aviao destruido",jogador1.clica(3,4));
+        assertEquals("Porta Avião destruído",jogador1.clica(3,4));
     }
 }

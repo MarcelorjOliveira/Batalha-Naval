@@ -81,6 +81,6 @@ public class PortaAviao extends Barco{
     
     @Override
     public String tipoBarco() {
-      return "Porta Aviao";   
+      return "Porta Avião";   
     }
 }

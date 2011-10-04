@@ -127,7 +127,7 @@ public class Jogador {
                       barco.pontosAcertados.add(pontoParam);
                       if(barco.pontosAcertados.size() == barco.pontos.size())
                       {
-                          return barco.tipoBarco() + " destruido" ;
+                          return barco.tipoBarco() + " destruído" ;
                       }
                       else
                       {
@@ -136,6 +136,6 @@ public class Jogador {
                   }
             }
         }
-        return "Agua";
+        return "Água";
     }
 }

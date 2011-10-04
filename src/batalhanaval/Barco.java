@@ -150,7 +150,7 @@ public class Barco{
                 tipo = "Barco de Dois Canos";
                 break;
             case Barco.BARCODETRESCANOS:
-                tipo = "Barco de Tres Canos";
+                tipo = "Barco de Três Canos";
                 break;
             case BARCODEQUATROCANOS:
                 tipo = "Barco de Quatro Canos";
