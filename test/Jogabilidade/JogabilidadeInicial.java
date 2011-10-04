@@ -77,4 +77,11 @@ public class JogabilidadeInicial {
         PortaAviao portaaviao = new PortaAviao(3,4,Barco.DIREITA);
         assertTrue(jogador1.barcos().get(0).equals(portaaviao));
     }
+    
+    @Test
+    public void seJogadorCriaAQuantidadeCertaDePecas() 
+    {
+        jogador1.criaPecasAleatorias();
+        assertEquals(11,jogador1.barcos().size());
+    }
 }

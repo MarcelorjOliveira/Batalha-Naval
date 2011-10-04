@@ -129,4 +129,8 @@ public class Barco{
         return true;
     }
     
+    public int tamanho()
+    {
+        return tamanho;
+    }      
 }
