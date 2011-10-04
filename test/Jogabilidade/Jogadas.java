@@ -89,4 +89,12 @@ public class Jogadas {
         assertEquals("Barco de Tres Canos destruido",jogador1.clica(1,10));
     }
     
+    @Test
+    public void seJogadorDestroiBarcoDeQuatroCanos() throws BarcoForaDaCoordenadaDoTabuleiroException {
+        assertEquals("Acertou",jogador1.clica(9,7));
+        assertEquals("Acertou",jogador1.clica(9,6));
+        assertEquals("Acertou",jogador1.clica(9,5));
+        assertEquals("Barco de Quatro Canos destruido",jogador1.clica(9,4));
+    }
+    
 }
