@@ -9,10 +9,7 @@ import batalhanaval.BarcoForaDaCoordenadaDoTabuleiroException;
 import batalhanaval.PortaAviao;
 import batalhanaval.Barco;
 import batalhanaval.Tabuleiro;
-import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -30,28 +27,40 @@ public class CriacaoDosBarcos {
     public CriacaoDosBarcos() throws BarcoForaDaCoordenadaDoTabuleiroException {
     }
 
-    @BeforeClass
-    public static void setUpClass() throws Exception {
-    }
-
-    @AfterClass
-    public static void tearDownClass() throws Exception {
-    }
-
     @Before
     public void setUp() throws BarcoForaDaCoordenadaDoTabuleiroException {
         tabuleiro = new Tabuleiro();
     }
 
-    @After
-    public void tearDown() {
-    }
-
-    /*
     @Test(expected = BarcoForaDaCoordenadaDoTabuleiroException.class)
-    public void naocriaBarcoEmCoordenadaForaDoTabuleiro() throws BarcoForaDaCoordenadaDoTabuleiroException {
+    public void naocriaBarcoEmCoordenadaXForaDoTabuleiroMaior() throws BarcoForaDaCoordenadaDoTabuleiroException {
         Barco submarino = new Barco(11,3, Barco.SUBMARINO);
-    }*/
+    }
+    
+    @Test(expected = BarcoForaDaCoordenadaDoTabuleiroException.class)
+    public void naocriaBarcoEmCoordenadaXForaDoTabuleiroMenor() throws BarcoForaDaCoordenadaDoTabuleiroException {
+        Barco submarino = new Barco(-1,3, Barco.SUBMARINO);
+    }
+    
+    @Test(expected = BarcoForaDaCoordenadaDoTabuleiroException.class)
+    public void naocriaBarcoEmCoordenadaYForaDoTabuleiroMaior() throws BarcoForaDaCoordenadaDoTabuleiroException {
+        Barco submarino = new Barco(8,16, Barco.SUBMARINO);
+    }
+    
+    @Test(expected = BarcoForaDaCoordenadaDoTabuleiroException.class)
+    public void naocriaBarcoEmCoordenadaYForaDoTabuleiroMenor() throws BarcoForaDaCoordenadaDoTabuleiroException {
+        Barco submarino = new Barco(8,-12, Barco.SUBMARINO);
+    }
+    
+    @Test(expected = BarcoForaDaCoordenadaDoTabuleiroException.class)
+    public void ExtensaoBarcoQuatroCanosnaocriaCoordenadaForaDoTabuleiro() throws BarcoForaDaCoordenadaDoTabuleiroException {
+        Barco quatrocanos = new Barco(10,7, Barco.BARCODEQUATROCANOS, Barco.DIREITA);
+    }
+    
+    @Test(expected = BarcoForaDaCoordenadaDoTabuleiroException.class)
+    public void ExtensaoPortaAviaonaocriaCoordenadaForaDoTabuleiro() throws BarcoForaDaCoordenadaDoTabuleiroException {
+        PortaAviao portaAviao = new PortaAviao(9,5,Barco.DIREITA);
+    }
     
     @Test
     public void criaSubmarino() throws BarcoForaDaCoordenadaDoTabuleiroException {
