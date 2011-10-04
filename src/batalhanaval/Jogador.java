@@ -112,4 +112,19 @@ public class Jogador {
             ex.printStackTrace();
         }
     }
+    
+    public String clica(int X, int Y) 
+    {
+        for(Barco barco : oponente.barcos)
+        {
+            for(Ponto ponto : barco.pontos)
+            {
+                  if((ponto.X == X) && (ponto.Y == Y)) 
+                  {
+                      return "Acertou";
+                  }
+            }
+        }
+        return "Agua";
+    }
 }
