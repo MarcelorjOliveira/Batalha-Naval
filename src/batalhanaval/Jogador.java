@@ -12,6 +12,8 @@ import java.util.ArrayList;
  *
  * @author marcelo
  */
+
+// TODO se Jogador tenta clicar em uma região fora do Tabuleiro
 public class Jogador {
     
     private Jogador oponente;
